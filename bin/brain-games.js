@@ -3,4 +3,3 @@
 import startTheGame from '../src/cli.js';
 
 startTheGame();
-
