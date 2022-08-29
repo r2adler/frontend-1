@@ -3,7 +3,7 @@ import getRandomNumber from '../../helpers.js';
 
 const description = 'What number is missing in the progression?';
 
-const askQuestion = () => {
+const getQuestionAndAnswer = () => {
   const num1 = getRandomNumber(1, 50);
   const step = getRandomNumber(1, 10);
   const range = getRandomNumber(5, 10);
@@ -12,11 +12,8 @@ const askQuestion = () => {
     arrow.push(i);
   }
   arrow.splice(getRandomNumber(range), 1, '..');
-  return arrow.join(' ');
-};
+  const question = arrow.join(' ');
 
-const findAnswer = (currentArrow) => {
-  const arrow = currentArrow.split(' ');
   let answer;
   if (arrow.indexOf('..') === 0) {
     answer = arrow[1] - (arrow[2] - arrow[1]);
@@ -27,7 +24,7 @@ const findAnswer = (currentArrow) => {
     const prevNumberIndex = arrow.indexOf('..') - 1;
     answer = (+arrow[prevNumberIndex] + (+arrow[nextNumberIndex] - +arrow[prevNumberIndex]) / 2);
   }
-  return String(answer);
+  return [question, String(answer)];
 };
 
-export default () => basisOfGames(description, askQuestion, findAnswer);
+export default () => basisOfGames(description, getQuestionAndAnswer);

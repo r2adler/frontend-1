@@ -3,16 +3,11 @@ import getRandomNumber from '../../helpers.js';
 
 const description = 'Find the greatest common divisor of given numbers.';
 
-const askQuestion = () => {
-  const a = getRandomNumber(1, 100);
-  const b = getRandomNumber(1, 100);
-  return (`${a} ${b}`);
-};
+const getQuestionAndAnswer = () => {
+  let a = getRandomNumber(1, 100);
+  let b = getRandomNumber(1, 100);
+  const question = `${a} ${b}`;
 
-const findAnswer = (question) => {
-  const [num1, num2] = question.split(' ');
-  let a = Number(num1);
-  let b = Number(num2);
   while (a !== b) {
     if (a > b) {
       a -= b;
@@ -20,7 +15,8 @@ const findAnswer = (question) => {
       b -= a;
     }
   }
-  return String(a);
+  const answer = String(a);
+  return [question, answer];
 };
 
-export default () => basisOfGames(description, askQuestion, findAnswer);
+export default () => basisOfGames(description, getQuestionAndAnswer);

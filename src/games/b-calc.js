@@ -3,22 +3,15 @@ import getRandomNumber from '../../helpers.js';
 
 const description = 'What is the result of the expression?';
 
-const askQuestion = () => {
-  const randomOperator = () => {
-    const simbols = ['+', '-', '*'];
-    return simbols[getRandomNumber(0, simbols.length - 1)];
-  };
-  const operator = randomOperator();
+const getQuestionAndAnswer = () => {
+  const simbols = ['+', '-', '*'];
   const a = getRandomNumber(1, 10);
   const b = getRandomNumber(1, 10);
-  const result = [a, operator, b];
-  return result.join(' ');
-};
+  const operator = simbols[getRandomNumber(0, simbols.length - 1)];
+  const answer = `${a} ${operator} ${b}`;
 
-const findAnswer = (result) => {
-  const [a, oper, b] = result.split(' ');
   let correctAnswer;
-  switch (oper) {
+  switch (operator) {
     case '+':
       correctAnswer = Number(a) + Number(b);
       break;
@@ -29,9 +22,9 @@ const findAnswer = (result) => {
       correctAnswer = Number(a) * Number(b);
       break;
     default:
-      throw new Error(`Unknown order state: '${oper}'!`);
+      throw new Error(`Unknown order state: '${operator}'!`);
   }
-  return String(correctAnswer);
+  return [answer, String(correctAnswer)];
 };
 
-export default () => basisOfGames(description, askQuestion, findAnswer);
+export default () => basisOfGames(description, getQuestionAndAnswer);

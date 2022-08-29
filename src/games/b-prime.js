@@ -3,18 +3,17 @@ import getRandomNumber from '../../helpers.js';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const askQuestion = () => getRandomNumber(1, 100);
+const getQuestionAndAnswer = () => {
+  const question = getRandomNumber(1, 100);
 
-const findAnswer = (num) => {
   let answer = 'yes';
-  for (let i = 2; i < num; i += 1) {
-    if (num % i === 0) {
+  for (let i = 2; i < question; i += 1) {
+    if (question % i === 0) {
       answer = 'no';
       break;
     }
   }
-
-  return answer;
+  return [question, answer];
 };
 
-export default () => basisOfGames(description, askQuestion, findAnswer);
+export default () => basisOfGames(description, getQuestionAndAnswer);
