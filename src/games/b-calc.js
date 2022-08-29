@@ -6,7 +6,7 @@ const description = 'What is the result of the expression?';
 const askQuestion = () => {
   const randomOperator = () => {
     const simbols = ['+', '-', '*'];
-    return simbols[getRandomNumber(0, simbols.length)];
+    return simbols[getRandomNumber(0, simbols.length - 1)];
   };
   const operator = randomOperator();
   const a = getRandomNumber(1, 10);
