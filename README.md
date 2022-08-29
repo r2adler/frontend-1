@@ -42,8 +42,7 @@ sudo npm link
 ```bash
 Запуск игры: $brain-prime
 ```
-[![asciicast](https://asciinema.org/a/8pjRw9H9DpX5Ovv50duiq8u2E.svg)](https://asciinema.org/a/8pjRw9H9DpX5Ovv50duiq8u2E)
-
+[![asciicast](https://asciinema.org/a/Ez0nOeVmCAL1K7hRJYAZIqK1N.svg)](https://asciinema.org/a/Ez0nOeVmCAL1K7hRJYAZIqK1N)
 
 
      
