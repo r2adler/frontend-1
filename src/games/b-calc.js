@@ -8,7 +8,7 @@ const getQuestionAndAnswer = () => {
   const a = getRandomNumber(1, 10);
   const b = getRandomNumber(1, 10);
   const operator = simbols[getRandomNumber(0, simbols.length - 1)];
-  const answer = `${a} ${operator} ${b}`;
+  const question = `${a} ${operator} ${b}`;
 
   let correctAnswer;
   switch (operator) {
@@ -24,7 +24,7 @@ const getQuestionAndAnswer = () => {
     default:
       throw new Error(`Unknown order state: '${operator}'!`);
   }
-  return [answer, String(correctAnswer)];
+  return [question, String(correctAnswer)];
 };
 
 export default () => basisOfGames(description, getQuestionAndAnswer);
