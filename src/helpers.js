@@ -1,5 +1,7 @@
 const getRandomNumber = (min, max) => Math.round(Math.random() * (max - min) + min);
+
 const isEven = (number) => number % 2 === 0;
+
 const gcd = (num1, num2) => {
   let a = num1;
   let b = num2;
@@ -12,6 +14,7 @@ const gcd = (num1, num2) => {
   }
   return a;
 };
+
 const isPrime = (number) => {
   for (let i = 2; i < number; i += 1) {
     if (number % i === 0) {
@@ -20,6 +23,15 @@ const isPrime = (number) => {
   }
   return true;
 };
+
+const progression = (num1, range, step) => {
+  const array = [];
+  for (let i = num1; array.length < range; i += step) {
+    array.push(i);
+  }
+  return array;
+};
+
 export {
-  getRandomNumber, isEven, gcd, isPrime,
+  getRandomNumber, isEven, gcd, isPrime, progression,
 };
