@@ -24,9 +24,9 @@ const isPrime = (number) => {
   return true;
 };
 
-const progression = (num1, range, step) => {
+const progression = (start, range, step) => {
   const array = [];
-  for (let i = num1; array.length < range; i += step) {
+  for (let i = start; array.length < range; i += step) {
     array.push(i);
   }
   return array;
