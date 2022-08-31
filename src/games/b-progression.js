@@ -7,22 +7,22 @@ const getQuestionAndAnswer = () => {
   const num1 = getRandomNumber(1, 50);
   const step = getRandomNumber(1, 10);
   const range = getRandomNumber(5, 10);
-  const arrow = [];
-  for (let i = num1; arrow.length < range; i += step) {
-    arrow.push(i);
+  const array = [];
+  for (let i = num1; array.length < range; i += step) {
+    array.push(i);
   }
-  arrow.splice(getRandomNumber(range), 1, '..');
-  const question = arrow.join(' ');
+  array.splice(getRandomNumber(range), 1, '..');
+  const question = array.join(' ');
 
   let answer;
-  if (arrow.indexOf('..') === 0) {
-    answer = arrow[1] - (arrow[2] - arrow[1]);
-  } else if (arrow.indexOf('..') === arrow.length - 1) {
-    answer = (+arrow[arrow.length - 2] - +arrow[arrow.length - 3]) + +arrow[arrow.length - 2];
+  if (array.indexOf('..') === 0) {
+    answer = array[1] - (array[2] - array[1]);
+  } else if (array.indexOf('..') === array.length - 1) {
+    answer = (+array[array.length - 2] - +array[array.length - 3]) + +array[array.length - 2];
   } else {
-    const nextNumberIndex = arrow.indexOf('..') + 1;
-    const prevNumberIndex = arrow.indexOf('..') - 1;
-    answer = (+arrow[prevNumberIndex] + (+arrow[nextNumberIndex] - +arrow[prevNumberIndex]) / 2);
+    const nextNumberIndex = array.indexOf('..') + 1;
+    const prevNumberIndex = array.indexOf('..') - 1;
+    answer = (+array[prevNumberIndex] + (+array[nextNumberIndex] - +array[prevNumberIndex]) / 2);
   }
   return [question, String(answer)];
 };
